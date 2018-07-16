@@ -8,11 +8,24 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
+const jwt = require('jsonwebtoken');
+const expressJwt = require('express-jwt');
+
 var app = express();
 
+var USERS = [
+  { 'id': 1, 'username': 'user1' },
+  { 'id': 2, 'username': 'user2' },
+  { 'id': 3, 'username': 'user3' },
+];
+function getUsers() {
+  return USERS;
+}
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
+
+app.use(expressJwt({secret: 'todo-app-super-shared-secret'}).unless({path: ['/api/auth']}));
 
 app.use(function (req, res, next) {
 
@@ -24,7 +37,9 @@ app.use(function (req, res, next) {
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
 
   // Request headers you wish to allow
-  res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+  // res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+  // Validadr Header especifico
+  res.setHeader('Access-Control-Allow-Headers', '*');
 
   // Set to true if you need the website to include cookies in the requests sent
   // to the API (e.g. in case you use sessions)
@@ -59,6 +74,16 @@ mongoose.connect('mongodb://localhost/bitAppApi')
 
 var registro = require('./routes/registro');//registro.js
 app.use('/api', registro);
+// Auth
+app.post('/api/auth', function(req, res) {
+  const body = req.body;
+
+  const user = USERS.find(user => user.username == body.username);
+  if(!user || body.password != 'ingeadmin') return res.sendStatus(401);
+  
+  var token = jwt.sign({userID: user.id}, 'todo-app-super-shared-secret', {expiresIn: '2h'});
+  res.send({token});
+});
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');

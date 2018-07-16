@@ -1,0 +1,46 @@
+<h1>Informe de registros SCM:</h1>
+<h2>Actualizado hasta <%=fecha%></h2>
+
+<!-- <table border="1" "style=border: 1px solid #999">
+        <tr>
+          <th>Programa</th>
+          <th>Descripcion</th>
+          <th>Operador</th>
+          <th>Responsable</th>
+        </tr>
+        <% result.forEach(function(obj){ %>
+        <tr>
+          <td><%=obj.programa%></td>
+          <td><%=obj.descripcion%></td>
+          <td><%=obj.operador%></td>
+          <td><%=obj.responsable%></td>
+        </tr>
+        <%})%>
+</table> -->
+
+<table border="1" "style=border: 1px solid #999">
+  <tbody>
+        <% result.forEach(function(obj){ %>
+          <% for(var i=0; i<cabeceras.length; i++) {%>
+            <tr>
+              <!-- <th scope="row"><%=cabeceras[i]%></th> -->
+              <!-- <td><%=obj.cabeceras[i]%></td> -->
+            </tr>
+          <% } %>
+        <%})%>
+  </tbody>
+</table>
+
+<!--
+<table>
+  <tbody>
+    <tr>
+      <th scope="row">A</th>
+      <td>b</td>
+    </tr>
+    <tr>
+      <th scope="row">C</th>
+      <td>d</td>
+    </tr>
+  </tbody>
+</table> -->

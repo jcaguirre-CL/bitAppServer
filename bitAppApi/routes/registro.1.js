@@ -19,45 +19,40 @@ const sendEmail = require('/home/jca/Development/NodeJS/bitApp/bitAppServer/bitA
 // var cabecerasMin = ["programa","responsable","plataforma","descripcion"];
 var templateString = fs.readFileSync('/home/jca/Development/NodeJS/bitApp/bitAppServer/bitAppApi/routes/templates/correo.ejs', 'utf-8');
 
-router.get('/sendMail/:correo/:listado/:remitente/:turno/:fechaInf', function(req, res, next) {
+router.get('/sendMail/:correo/:listado/:remitente', function(req, res, next) {
   var listaEventos = [];
-  var Sequence = exports.Sequence || require('sequence').Sequence,
-      sequence = Sequence.create(),
-      err;
-  var array = req.params.listado.split(',');
-  console.log('##############################################');
+  console.log('listadoassa: ' + req.params.listado);
 
-  sequence.then(function(next) {
-      setTimeout(function() {
-          for (var i = 0, len = array.length; i < len; i++) {
-              Evento.findById(array[i], function(err, post) {
-                  listaEventos.push(post)
-              })
-              // listaEventos = [];
-          }
-          next(err, listaEventos)
-      }, 500)
-  }).then(function(next, err, listaEventos) {
-      setTimeout(function() {
-          fecha = new Date().toISOString().replace(/T/, ' ').replace(/\..+/, '');
-          // fechaInf = req.params.fechaInf.toISOString().slice(0,10);
-          console.log(req.params.fechaInf);
-          var arr = req.params.fechaInf.split(" ");
-          message = ejs.render(templateString, {
-              result: listaEventos,
-              fecha: fecha,
-              remitente: req.params.remitente,
-              turno: req.params.turno,
-              fechaInf: arr[2] + ' ' + arr[1] + ' ' + arr[3]
-          });
-          console.log('##############################################' + req.params.correo, listaEventos);
-          sendEmail(req.params.correo, 'Notificacion eventos BIT', message);
-          next(err)
-      }, 500)
-  });
-  res.json({
-      envio: 'ok'
+  var Sequence = exports.Sequence || require('sequence').Sequence
+    , sequence = Sequence.create()
+    , err
+    ;
+  var array = req.params.listado.split(',');
+  sequence
+  .then(function (next) {
+    setTimeout(function () {
+    for (var i = 0, len = array.length; i < len; i++) {
+      Evento.findById(array[i], function (err, post) {
+        console.log('********************cdscenviandoCorreo: ' + JSON.stringify(post) + post.responsable);
+        listaEventos.push(post);
+      });
+    }
+    next(err, listaEventos);
+  }, 500);
   })
+  .then(function (next, err, listaEventos) {
+    setTimeout(function () {
+    console.log('************Obj: ' + JSON.stringify(listaEventos[0]));
+    fecha = new Date().toISOString().
+                        replace(/T/, ' ').
+                        replace(/\..+/, '');
+  //  message = ejs.render(templateString, {result: listaEventos, fecha: fecha, remitente: req.params.remitente});
+    // message = ejs.render(templateString, {result: drinks});
+    sendEmail(req.params.correo, 'Notificacion eventos', 'hola');
+    next();
+  }, 500);
+  });
+  res.json({envio: 'ok'});
 });
 
 router.get('/queryTimesbyparameters/:key/:value/:fechaIni/:fechaFin', function(req, res, next) {

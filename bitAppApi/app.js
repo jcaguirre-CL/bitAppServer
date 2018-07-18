@@ -1,5 +1,6 @@
 var createError = require('http-errors');
 var express = require('express');
+var cors = require('cors')
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
@@ -12,6 +13,7 @@ const jwt = require('jsonwebtoken');
 const expressJwt = require('express-jwt');
 
 var app = express();
+app.use(cors())
 
 var USERS = [
   { 'id': 1, 'username': 'user1' },

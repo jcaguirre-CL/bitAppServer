@@ -1,11 +1,15 @@
 <p>&nbsp;</p>
-<h2>Estimados:</h2>
+<h4>Estimados:</h4>
 <p>&nbsp;</p>
-<h1>El presente informe notifica los eventos registrados hasta el <%=fecha%></h1>
+<h4>El presente informe notifica los eventos registrados durante el turno <%=turno%> del <%=fechaInf%></h1>
 <p>&nbsp;</p>
 <%result.forEach(function(obj){ %>
-<table border="1" style="border: 1px solid #999">
+<table border="1" style="border: 1px solid #999; border-collapse: collapse">
   <tbody>
+      <tr>
+        <th scope="row" style="font-size:xx-small; border: 1px solid black; font-weight: bold;">AREA AFECTADA</th>
+        <td style="font-size:xx-small; border: 1px solid black"><%=obj.area%></td>
+      </tr>
             <tr>
               <th scope="row">PROGRAMA</th>
               <td><%=obj.programa%></td>
@@ -16,27 +20,28 @@
             </tr>
             <tr>
               <th scope="row">OPERADOR</th>
-              <td><%=obj.operador%></td>
+              <!-- <td><%=obj.operador%></td> -->
             </tr>
             <tr>
               <th scope="row">RESPONSABLE</th>
-              <td><%=obj.responsable%></td>
+              <!-- <td><%=obj.responsable%></td> -->
             </tr>
             <tr>
               <th scope="row">DURACION (seg)</th>
-              <td><%=obj.duracionfalla%></td>
+              <!-- <td><%=obj.duracionfalla%></td> -->
             </tr>
             <tr>
               <th scope="row">FECHA EVENTO</th>
-              <td><%=obj.fechaevento%></td>
+              <!-- <td><%=obj.fechaevento%></td> -->
             </tr>
   </tbody>
 </table>
 <br />
 <%})%>
 <p>&nbsp;</p>
-<h1>Saludos cordiales, </h1>
+<h4>Saludos cordiales, </h4>
 <p></p>
-<h1><%=remitente%></h1>
-<br>
-<h1>Sala de Control Master</h1>
+<h3><%=remitente%></h3>
+<h4>Soporte BIT</h4>
+<h4>Ingeniería, Canal 13</h4>
+

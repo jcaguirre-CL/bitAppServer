@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 var InformeSchema = new mongoose.Schema({
   listadoEventos: [{_id: String}],
-  responsable: String,
+  respevento: String,
   fecha: { type: Date, default: Date.now },
   turno: String,
   informeId: String

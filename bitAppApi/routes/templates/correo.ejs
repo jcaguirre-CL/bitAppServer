@@ -7,33 +7,49 @@
 <table border="1" style="border: 1px solid #999; border-collapse: collapse">
   <tbody>
       <tr>
+        <th scope="row" style="font-size:xx-small; border: 1px solid black; font-weight: bold;">HORA</th>
+        <td style="font-size:xx-small; border: 1px solid black"><%=obj.hora%></td>
+      </tr>
+      <tr>
+          <th scope="row" style="font-size:xx-small; border: 1px solid black; font-weight: bold;">NIVEL</th>
+          <td style="font-size:xx-small; border: 1px solid black"><%=obj.nivel%></td>
+        </tr>      
+      <tr>
         <th scope="row" style="font-size:xx-small; border: 1px solid black; font-weight: bold;">AREA AFECTADA</th>
         <td style="font-size:xx-small; border: 1px solid black"><%=obj.area%></td>
       </tr>
-            <tr>
-              <th scope="row">PROGRAMA</th>
-              <td><%=obj.programa%></td>
-            </tr>
-            <tr>
-              <th scope="row">DESCRIPCION</th>
-              <td style="width:500px; float:left; word-wrap:break-word"><%=obj.descripcion%></td>
-            </tr>
-            <tr>
-              <th scope="row">OPERADOR</th>
-              <!-- <td><%=obj.operador%></td> -->
-            </tr>
-            <tr>
-              <th scope="row">RESPONSABLE</th>
-              <!-- <td><%=obj.responsable%></td> -->
-            </tr>
-            <tr>
-              <th scope="row">DURACION (seg)</th>
-              <!-- <td><%=obj.duracionfalla%></td> -->
-            </tr>
-            <tr>
-              <th scope="row">FECHA EVENTO</th>
-              <!-- <td><%=obj.fechaevento%></td> -->
-            </tr>
+      <tr>
+        <th scope="row" style="font-size:xx-small; border: 1px solid black; font-weight: bold;">PROGRAMA</th>
+        <td style="font-size:xx-small; border: 1px solid black"><%=obj.programa%></td>
+      </tr>
+      <tr>
+        <th scope="row" style="font-size:xx-small; border: 1px solid black; font-weight: bold;">PLATAFORMA</th>
+        <td style="font-size:xx-small; border: 1px solid black"><%=obj.plataforma.nombre%></td>
+      </tr>
+      <tr>
+        <th scope="row" style="font-size:xx-small; border: 1px solid black; font-weight: bold;">ITEM EN FALLA</th>
+        <td style="font-size:xx-small; border: 1px solid black"><%=obj.plataforma.itemfalla%></td>
+      </tr>
+      <tr>
+        <th scope="row" style="font-size:xx-small; border: 1px solid black; font-weight: bold;">TIPO DE FALLA</th>
+        <td style="font-size:xx-small; border: 1px solid black"><%=obj.tipofalla%></td>
+      </tr>
+      <tr>
+        <th scope="row" style="font-size:xx-small; border: 1px solid black; font-weight: bold;">DESCRIPCION</th>
+        <td style="font-size:xx-small; width:500px; float:left; word-wrap:break-word"><%=obj.descripcion%></td>
+      </tr>
+      <tr>
+        <th scope="row" style="font-size:xx-small; border: 1px solid black; font-weight: bold;">SOLUCION</th>
+        <td style="font-size:xx-small; width:500px; float:left; word-wrap:break-word"><%=obj.solucion%></td>
+      </tr>
+      <tr>
+        <th scope="row" style="font-size:xx-small; border: 1px solid black; font-weight: bold;">ESTADO</th>
+        <td style="font-size:xx-small; border: 1px solid black"><%=obj.estado%></td>
+      </tr>   
+      <tr>
+        <th scope="row" style="font-size:xx-small; border: 1px solid black; font-weight: bold;">ATENCION</th>
+        <td style="font-size:xx-small; border: 1px solid black"><%=obj.atencion%></td>
+      </tr>               
   </tbody>
 </table>
 <br />

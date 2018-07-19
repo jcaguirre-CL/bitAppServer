@@ -16,9 +16,14 @@ var app = express();
 app.use(cors())
 
 var USERS = [
-  { 'id': 1, 'username': 'user1' },
-  { 'id': 2, 'username': 'user2' },
-  { 'id': 3, 'username': 'user3' },
+  { 'id': '011', 'username': 'jtello@13.cl' },
+  { 'id': '012', 'username': 'hmeza@13.cl' },
+  { 'id': '013', 'username': 'malvear@13.cl' },
+  { 'id': '014', 'username': 'jcaguirre@13.cl' },
+  { 'id': '111', 'username': 'gerardo.pizarro@13.cl' },
+  { 'id': '112', 'username': 'csalinas@13.cl' },
+  { 'id': '113', 'username': 'mmendezp@13.cl' },
+  { 'id': '114', 'username': 'josue.yanez@13.cl' }
 ];
 function getUsers() {
   return USERS;
@@ -81,7 +86,7 @@ app.post('/api/auth', function(req, res) {
   const body = req.body;
 
   const user = USERS.find(user => user.username == body.username);
-  if(!user || body.password != 'qqqq') return res.sendStatus(401);
+  if(!user || body.password != 'ingeadmin') return res.sendStatus(401);
   
   var token = jwt.sign({userID: user.id}, 'todo-app-super-shared-secret', {expiresIn: '2h'});
   res.send({token});

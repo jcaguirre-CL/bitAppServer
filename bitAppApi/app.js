@@ -16,6 +16,7 @@ var app = express();
 app.use(cors())
 
 var USERS = [
+  { 'id': '001', 'username': 'rlara@13.cl' },
   { 'id': '011', 'username': 'jtello@13.cl' },
   { 'id': '012', 'username': 'hmeza@13.cl' },
   { 'id': '013', 'username': 'malvear@13.cl' },
@@ -86,7 +87,7 @@ app.post('/api/auth', function(req, res) {
   const body = req.body;
 
   const user = USERS.find(user => user.username == body.username);
-  if(!user || body.password != 'ingeadmin') return res.sendStatus(401);
+  if(!user || body.password != 'incidentes') return res.sendStatus(401);
   
   var token = jwt.sign({userID: user.id}, 'todo-app-super-shared-secret', {expiresIn: '2h'});
   res.send({token});

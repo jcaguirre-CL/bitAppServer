@@ -88,9 +88,13 @@ app.post('/api/auth', function(req, res) {
 
   const user = USERS.find(user => user.username == body.username);
 <<<<<<< HEAD
+<<<<<<< HEAD
   if(!user || body.password != 'incidencias') return res.sendStatus(401);
 =======
   if(!user || body.password != 'incidentes') return res.sendStatus(401);
+>>>>>>> incidentes
+=======
+  if(!user || body.password != 'incidencias') return res.sendStatus(401);
 >>>>>>> incidentes
   
   var token = jwt.sign({userID: user.id}, 'todo-app-super-shared-secret', {expiresIn: '2h'});

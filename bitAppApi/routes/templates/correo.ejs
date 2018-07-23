@@ -1,61 +1,61 @@
 <p>&nbsp;</p>
-<h4>Estimados:</h4>
+<h3>Estimados:</h3>
 <p>&nbsp;</p>
-<h4>El presente informe notifica los eventos registrados durante el turno <%=turno%> del <%=fechaInf%></h1>
+<h3>El presente informe notifica los eventos registrados durante el turno <%=turno%> del <%=fechaInf%></h3>
 <p>&nbsp;</p>
 <%result.forEach(function(obj){ %>
 <table border="1" style="border: 1px solid #999; border-collapse: collapse">
   <tbody>
       <tr>
-        <th scope="row" style="font-size:xx-small; border: 1px solid black; font-weight: bold;">HORA</th>
-        <td style="font-size:xx-small; border: 1px solid black"><%=obj.hora%></td>
+        <th scope="row" style="font-size:small; border: 1px solid black; font-weight: bold;">HORA</th>
+        <td style="font-size:small; border: 1px solid black"><%=obj.hora%></td>
       </tr>
       <tr>
-          <th scope="row" style="font-size:xx-small; border: 1px solid black; font-weight: bold;">NIVEL</th>
-          <td style="font-size:xx-small; border: 1px solid black"><%=obj.nivel%></td>
+          <th scope="row" style="font-size:small; border: 1px solid black; font-weight: bold;">NIVEL</th>
+          <td style="font-size:small; border: 1px solid black"><%=obj.nivel%></td>
         </tr>      
       <tr>
-        <th scope="row" style="font-size:xx-small; border: 1px solid black; font-weight: bold;">AREA AFECTADA</th>
-        <td style="font-size:xx-small; border: 1px solid black"><%=obj.area%></td>
+        <th scope="row" style="font-size:small; border: 1px solid black; font-weight: bold;">AREA AFECTADA</th>
+        <td style="font-size:small; border: 1px solid black"><%=obj.area%></td>
       </tr>
       <tr>
-        <th scope="row" style="font-size:xx-small; border: 1px solid black; font-weight: bold;">PROGRAMA</th>
-        <td style="font-size:xx-small; border: 1px solid black"><%=obj.programa%></td>
+        <th scope="row" style="font-size:small; border: 1px solid black; font-weight: bold;">PROGRAMA</th>
+        <td style="font-size:small; border: 1px solid black"><%=obj.programa%></td>
       </tr>
       <tr>
-        <th scope="row" style="font-size:xx-small; border: 1px solid black; font-weight: bold;">PLATAFORMA</th>
-        <td style="font-size:xx-small; border: 1px solid black"><%=obj.plataforma.nombre%></td>
+        <th scope="row" style="font-size:small; border: 1px solid black; font-weight: bold;">PLATAFORMA</th>
+        <td style="font-size:small; border: 1px solid black"><%=obj.plataforma.nombre%></td>
       </tr>
       <tr>
-        <th scope="row" style="font-size:xx-small; border: 1px solid black; font-weight: bold;">ITEM EN FALLA</th>
-        <td style="font-size:xx-small; border: 1px solid black"><%=obj.plataforma.itemfalla%></td>
+        <th scope="row" style="font-size:small; border: 1px solid black; font-weight: bold;">ITEM EN FALLA</th>
+        <td style="font-size:small; border: 1px solid black"><%=obj.plataforma.itemfalla%></td>
       </tr>
       <tr>
-        <th scope="row" style="font-size:xx-small; border: 1px solid black; font-weight: bold;">TIPO DE FALLA</th>
-        <td style="font-size:xx-small; border: 1px solid black"><%=obj.tipofalla%></td>
+        <th scope="row" style="font-size:small; border: 1px solid black; font-weight: bold;">TIPO DE FALLA</th>
+        <td style="font-size:small; border: 1px solid black"><%=obj.tipofalla%></td>
       </tr>
       <tr>
-        <th scope="row" style="font-size:xx-small; border: 1px solid black; font-weight: bold;">DESCRIPCION</th>
-        <td style="font-size:xx-small; width:500px; float:left; word-wrap:break-word"><%=obj.descripcion%></td>
+        <th scope="row" style="font-size:small; border: 1px solid black; font-weight: bold;">DESCRIPCION</th>
+        <td style="font-size:small; width:500px; float:left; word-wrap:break-word"><%=obj.descripcion%></td>
       </tr>
       <tr>
-        <th scope="row" style="font-size:xx-small; border: 1px solid black; font-weight: bold;">SOLUCION</th>
-        <td style="font-size:xx-small; width:500px; float:left; word-wrap:break-word"><%=obj.solucion%></td>
+        <th scope="row" style="font-size:small; border: 1px solid black; font-weight: bold;">SOLUCION</th>
+        <td style="font-size:small; width:500px; float:left; word-wrap:break-word"><%=obj.solucion%></td>
       </tr>
       <tr>
-        <th scope="row" style="font-size:xx-small; border: 1px solid black; font-weight: bold;">ESTADO</th>
-        <td style="font-size:xx-small; border: 1px solid black"><%=obj.estado%></td>
+        <th scope="row" style="font-size:small; border: 1px solid black; font-weight: bold;">ESTADO</th>
+        <td style="font-size:small; border: 1px solid black"><%=obj.estado%></td>
       </tr>   
       <tr>
-        <th scope="row" style="font-size:xx-small; border: 1px solid black; font-weight: bold;">ATENCION</th>
-        <td style="font-size:xx-small; border: 1px solid black"><%=obj.atencion%></td>
+        <th scope="row" style="font-size:small; border: 1px solid black; font-weight: bold;">ATENCION</th>
+        <td style="font-size:small; border: 1px solid black"><%=obj.atencion%></td>
       </tr>               
   </tbody>
 </table>
 <br />
 <%})%>
 <p>&nbsp;</p>
-<h4>Saludos cordiales, </h4>
+<h3>Saludos cordiales, </h3>
 <p></p>
 <h3><%=remitente%></h3>
 <h4>Soporte BIT</h4>

@@ -18,6 +18,7 @@ const sendEmail = require('/home/jca/Development/NodeJS/bitApp/bitAppServer/bitA
 // var cabeceras = ["PROGRAMA","RESPONSABLE","PLATAFORMA","RESPONSABLE"];
 // var cabecerasMin = ["programa","responsable","plataforma","descripcion"];
 var templateString = fs.readFileSync('/home/jca/Development/NodeJS/bitApp/bitAppServer/bitAppApi/routes/templates/correo.ejs', 'utf-8');
+var templateStringNoEvents = fs.readFileSync('/home/jca/Development/NodeJS/bitApp/bitAppServer/bitAppApi/routes/templates/correoNoEvents.ejs', 'utf-8');
 
 router.get('/sendMail/:correo/:listado/:remitente/:turno/:fechaInf', function(req, res, next) {
   var listaEventos = [];
@@ -25,9 +26,9 @@ router.get('/sendMail/:correo/:listado/:remitente/:turno/:fechaInf', function(re
       sequence = Sequence.create(),
       err;
   var array = req.params.listado.split(',');
-  console.log('##############################################');
-
-  sequence.then(function(next) {
+  console.log('##############################################' + array.length);
+  if (req.params.listado !== '[]') {
+    sequence.then(function(next) {
       setTimeout(function() {
           for (var i = 0, len = array.length; i < len; i++) {
               Evento.findById(array[i], function(err, post) {
@@ -55,6 +56,19 @@ router.get('/sendMail/:correo/:listado/:remitente/:turno/:fechaInf', function(re
           next(err)
       }, 500)
   });
+  } else {
+    console.log('no events');
+    var arr = req.params.fechaInf.split(" ");
+    message = ejs.render(templateStringNoEvents, {
+        remitente: req.params.remitente,
+        turno: req.params.turno,
+        fechaInf: arr[2] + ' ' + arr[1] + ' ' + arr[3]
+    });
+    sendEmail(req.params.correo, 'Notificacion eventos BIT', message);
+    console.log('##############################################' + req.params.correo, listaEventos);
+
+  }
+
   res.json({
       envio: 'ok'
   })

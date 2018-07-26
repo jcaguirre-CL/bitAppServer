@@ -1,0 +1,61 @@
+<p>&nbsp;</p>
+<h3>Estimados:</h3>
+<p>&nbsp;</p>
+<h3>El presente informe notifica el evento registrado con fecha <%=fechaInf%></h3>
+<p>&nbsp;</p>
+<table border="1" style="border: 1px solid #999; border-collapse: collapse">
+  <tbody>
+      <tr>
+        <th scope="row" style="font-size:small; border: 1px solid black; font-weight: bold;">HORA</th>
+        <td style="font-size:small; border: 1px solid black"><%=result.hora%></td>
+      </tr>
+      <tr>
+          <th scope="row" style="font-size:small; border: 1px solid black; font-weight: bold;">NIVEL</th>
+          <td style="font-size:small; border: 1px solid black"><%=result.nivel%></td>
+        </tr>      
+      <tr>
+        <th scope="row" style="font-size:small; border: 1px solid black; font-weight: bold;">AREA AFECTADA</th>
+        <td style="font-size:small; border: 1px solid black"><%=result.area%></td>
+      </tr>
+      <tr>
+        <th scope="row" style="font-size:small; border: 1px solid black; font-weight: bold;">PROGRAMA</th>
+        <td style="font-size:small; border: 1px solid black"><%=result.programa%></td>
+      </tr>
+      <tr>
+        <th scope="row" style="font-size:small; border: 1px solid black; font-weight: bold;">PLATAFORMA</th>
+        <td style="font-size:small; border: 1px solid black"><%=result.plataforma.nombre%></td>
+      </tr>
+      <tr>
+        <th scope="row" style="font-size:small; border: 1px solid black; font-weight: bold;">ITEM EN FALLA</th>
+        <td style="font-size:small; border: 1px solid black"><%=result.plataforma.itemfalla%></td>
+      </tr>
+      <tr>
+        <th scope="row" style="font-size:small; border: 1px solid black; font-weight: bold;">TIPO DE FALLA</th>
+        <td style="font-size:small; border: 1px solid black"><%=result.tipofalla%></td>
+      </tr>
+      <tr>
+        <th scope="row" style="font-size:small; border: 1px solid black; font-weight: bold;">DESCRIPCION</th>
+        <td style="font-size:small; width:500px; float:left; word-wrap:break-word"><%=result.descripcion%></td>
+      </tr>
+      <tr>
+        <th scope="row" style="font-size:small; border: 1px solid black; font-weight: bold;">SOLUCION</th>
+        <td style="font-size:small; width:500px; float:left; word-wrap:break-word"><%=result.solucion%></td>
+      </tr>
+      <tr>
+        <th scope="row" style="font-size:small; border: 1px solid black; font-weight: bold;">ESTADO</th>
+        <td style="font-size:small; border: 1px solid black"><%=result.estado%></td>
+      </tr>   
+      <tr>
+        <th scope="row" style="font-size:small; border: 1px solid black; font-weight: bold;">ATENCION</th>
+        <td style="font-size:small; border: 1px solid black"><%=result.atencion%></td>
+      </tr>               
+  </tbody>
+</table>
+<br />
+<p>&nbsp;</p>
+<h3>Saludos cordiales, </h3>
+<p></p>
+<h3><%=remitente%></h3>
+<h4>Soporte BIT</h4>
+<h4>Ingeniería, Canal 13</h4>
+

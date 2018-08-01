@@ -191,6 +191,15 @@ router.post('/Evento', function(req, res, next) {
   console.log('crear evento: ', req);
   Evento.create(req.body, function (err, post) {
     if (err) return next(err);
+    console.log('************' + post["_id"])
+    var query = {_id:new ObjectId(post["_id"])}
+    // Evento.findOneAndUpdate({_id:new ObjectId(post["_id"])}, eventoId : post["_id"], function (err, post) {
+    // Evento.findOneAndUpdate(query, {$set:{'eventoId' : String(post["_id"])}}, function (err, post2) {
+    // Evento.findOneAndUpdate(query, {$set:{eventoId : 'AAA'}}, function (err, post2) {   // Funciona OK
+    Evento.findOneAndUpdate(query, {$set:{eventoId : post["_id"]}}, function (err, post2) {   // Funciona OK
+    if (err) return next(err);
+    console.log('*************revisar post2' + post2);
+    });
     res.json(post);
   });
 });
@@ -249,6 +258,15 @@ router.get('/Evento/:eventoId', function(req, res, next) {
 
 router.put('/Evento/:eventoId', function(req, res, next) {
   var query = { _id: new ObjectId(req.params.eventoId)}
+  Evento.findOneAndUpdate(query, {$set:req.body}, function (err, post) {
+      console.log(req.body)
+      if (err) return next(err);
+      res.json(post);
+  });
+});
+
+router.put('/Evento', function(req, res, next) {
+  var query = { _id: new ObjectId(req.body["eventoId"])}
   Evento.findOneAndUpdate(query, {$set:req.body}, function (err, post) {
       console.log(req.body)
       if (err) return next(err);
